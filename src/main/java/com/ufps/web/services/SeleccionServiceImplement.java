@@ -39,9 +39,4 @@ public class SeleccionServiceImplement implements SeleccionService {
 		repository.deleteById(id);
 	}
 
-	@Override
-	public List<Continente> listAllContinentes() {
-		return null;
-	}
-
 }

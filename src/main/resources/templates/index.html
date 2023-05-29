@@ -30,22 +30,17 @@
 			</div>
 		</div>
 		<ul>
-			<li><a th:href="@{/categoria_view/list}"> <i
+			<li><a th:href="@{/seleccion_view/list}"> <i
 					class="bx bxs-grid-alt"></i> <span class="nav-item">Inicio</span>
 			</a> <span class="tooltip">Inicio</span></li>
-			<li><a href="#"> <i class="bx bx-user-check"></i> <span
-					class="nav-item">Asignar</span>
-			</a> <span class="tooltip">Asignar</span></li>
 
 			<li><a href="#"> <i class="bx bx-list-ul"></i> <span
-					class="nav-item">Rutina</span>
-			</a> <span class="tooltip">Rutina</span></li>
-			<li><a th:href="@{/categoria_view/new}"> <i
+					class="nav-item">Continentes</span>
+			</a> <span class="tooltip">Continentes</span></li>
+			<li><a th:href="@{/seleccion_view/new}"> <i
 					class="bx bx-list-plus"></i> <span class="nav-item">Crear</span>
 			</a> <span class="tooltip">Crear</span></li>
-			<li><a href="#"> <i class="bx bx-dumbbell"></i> <span
-					class="nav-item">Ejercicio</span>
-			</a> <span class="tooltip">Ejercicio</span></li>
+
 			<li><a href="#"> <i class="bx bx-log-out"></i> <span
 					class="nav-item">Salir</span>
 			</a> <span class="tooltip">Salir</span></li>
@@ -76,8 +71,13 @@
 					<tr th:each="seleccion: ${selecciones}">
 						<td th:text="${seleccion.id}">Id</td>
 						<td th:text="${seleccion.nombre}">Nombre</td>
-						<td th:text="${seleccion.continente.getNombre()}">Nombre del continente</td>
+						<td th:text="${seleccion.continente.getNombre()}">Nombre del
+							continente</td>
 						<td th:text="${seleccion.grupo}"></td>
+						<td><a th:href="@{/seleccion_view/showF(id=${seleccion.id})}"
+							class="btn btn-info">Editar</a> <a
+							th:href="@{/seleccion_view/delete/{id}(id=${seleccion.id})}"
+							class="btn btn-danger">Eliminar</a></td>
 					</tr>
 				</tbody>
 			</table>
