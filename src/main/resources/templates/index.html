@@ -15,7 +15,7 @@
 	th:href="@{/css/sidebar.css}">
 </head>
 <body>
-	<div class="sidebar">
+	<div class="sidebar" style="height: 320vh;">
 		<div class="top">
 			<div class="logo">
 				<i class="bx bxs-user-detail"></i> <span>Admin</span>
@@ -53,7 +53,7 @@
 			<a class="navbar-brand">CRUD</a>
 		</nav>
 		<br>
-		<div class="container">
+		<div class="container" style="padding-left: 5.4rem;">
 			<div class="row">
 				<h1>Listado</h1>
 			</div>
@@ -74,7 +74,7 @@
 						<td th:text="${seleccion.continente.getNombre()}">Nombre del
 							continente</td>
 						<td th:text="${seleccion.grupo}"></td>
-						<td><a th:href="@{/seleccion_view/showF(id=${seleccion.id})}"
+						<td><a th:href="@{/seleccion_view/edit(id=${seleccion.id})}"
 							class="btn btn-info">Editar</a> <a
 							th:href="@{/seleccion_view/delete/{id}(id=${seleccion.id})}"
 							class="btn btn-danger">Eliminar</a></td>

@@ -24,9 +24,7 @@ public class SeleccionController {
 	@Autowired
 	private SeleccionService service;
 	@Autowired
-	private SeleccionRepository seleccionRepository;
-	@Autowired
-    ContinenteRepository continenteRepository;
+    private ContinenteRepository continenteRepository;
 
 	@GetMapping("/list")
 	public String listSeleccion(Model modelo) {
@@ -48,36 +46,28 @@ public class SeleccionController {
 		return "redirect:/seleccion_view/list";
 	}
 	
+	@GetMapping("/edit")
+    public String editShowForm(@RequestParam(value = "id", required = false) Integer id, Model model) {
+        Seleccion seleccion = new Seleccion();
+        if(id != null) {
+            seleccion = service.getSeleccionPorId(id);
+        }     
+        if(seleccion == null) {
+        	return "noExist";
+        }
+        List<Continente> continente = continenteRepository.findAll();
+        model.addAttribute("continente", continente);
+        model.addAttribute("seleccion", seleccion);
+        return "edit";
+    }
+	
 	@GetMapping("/delete/{id}")
     public String deleteNews(@PathVariable("id") Integer id, @ModelAttribute("seleccion") Seleccion seleccion,
                                BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "redirect:/seleccion_view/noExist";
         }
-        seleccionRepository.deleteById(id);
+        service.deleteSeleccion(id);
         return "redirect:/seleccion_view/list";
     }
-	
-	@GetMapping("/showF")
-    public String showForm(@RequestParam(value = "id", required = false) Integer id, Model model) {
-        Seleccion seleccion = new Seleccion();
-        if(id != null) {
-            seleccion = seleccionRepository.findById(id).get();
-        }
-        List<Continente> continente = continenteRepository.findAll();
-        model.addAttribute("continente", continente);
-        model.addAttribute("seleccion", seleccion);
-        return "show";
-    }
-	
-	@PostMapping("/add")
-    public String procesarFormulario(Seleccion seleccion, BindingResult result) {
-        if (result.hasErrors()) {
-            return "show";
-        }
-        seleccionRepository.save(seleccion);
-
-        return "redirect:/seleccion_view/list";
-    }
-	
 }

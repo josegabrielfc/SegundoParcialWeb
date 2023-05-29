@@ -75,7 +75,7 @@
 							</div>
 							<br>
 							<div class="form-group">
-								<label>Continenete:</label> <select name="continente"
+								<label>Continente:</label> <select name="continente" class="form-control"
 									th:field="*{continente.id}" required>
 									<option value="">Seleccione un continente</option>
 									<option th:each="c : ${continente}" th:value="${c.id}"
