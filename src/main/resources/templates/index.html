@@ -34,9 +34,9 @@
 					class="bx bxs-grid-alt"></i> <span class="nav-item">Inicio</span>
 			</a> <span class="tooltip">Inicio</span></li>
 
-			<li><a href="#"> <i class="bx bx-list-ul"></i> <span
-					class="nav-item">Continentes</span>
-			</a> <span class="tooltip">Continentes</span></li>
+			<li><a th:href="@{/seleccion_view/selectGroup}"> <i
+					class="bx bx-list-ul"></i> <span class="nav-item">Grupos</span>
+			</a> <span class="tooltip">Grupos</span></li>
 			<li><a th:href="@{/seleccion_view/new}"> <i
 					class="bx bx-list-plus"></i> <span class="nav-item">Crear</span>
 			</a> <span class="tooltip">Crear</span></li>
@@ -74,10 +74,13 @@
 						<td th:text="${seleccion.continente.getNombre()}">Nombre del
 							continente</td>
 						<td th:text="${seleccion.grupo}"></td>
-						<td><a th:href="@{/seleccion_view/edit(id=${seleccion.id})}"
+						<td><a class="btn btn-primary"
+							th:href="@{/seleccion_view/{id}/resultados(id=${seleccion.id})}">Resultados</a>
+							<a th:href="@{/seleccion_view/edit(id=${seleccion.id})}"
 							class="btn btn-info">Editar</a> <a
 							th:href="@{/seleccion_view/delete/{id}(id=${seleccion.id})}"
 							class="btn btn-danger">Eliminar</a></td>
+							
 					</tr>
 				</tbody>
 			</table>

@@ -16,4 +16,6 @@ public interface SeleccionService {
 	
 	public void deleteSeleccion(Integer id);
 	
+	public List<Seleccion> listSeleccionesByGroup(String grupo);
+	
 }

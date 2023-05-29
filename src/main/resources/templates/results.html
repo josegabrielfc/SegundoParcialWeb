@@ -5,7 +5,7 @@
 	rel="stylesheet">
 <head>
 <meta charset="UTF-8">
-<title>Editar Seleccion</title>
+<title>Listado de Resultados</title>
 <link rel="icon" type="image/x-icon"
 	href="static/images/icon-spring-boot.svg"
 	th:href="@{/images/icon-spring-boot.svg}">
@@ -15,7 +15,7 @@
 	th:href="@{/css/sidebar.css}">
 </head>
 <body>
-	<div class="sidebar">
+	<div class="sidebar" style="height: 320vh;">
 		<div class="top">
 			<div class="logo">
 				<i class="bx bxs-user-detail"></i> <span>Admin</span>
@@ -40,7 +40,7 @@
 			<li><a th:href="@{/seleccion_view/new}"> <i
 					class="bx bx-list-plus"></i> <span class="nav-item">Crear</span>
 			</a> <span class="tooltip">Crear</span></li>
-			
+
 			<li><a href="#"> <i class="bx bx-log-out"></i> <span
 					class="nav-item">Salir</span>
 			</a> <span class="tooltip">Salir</span></li>
@@ -52,9 +52,34 @@
 			style="display: flex; justify-content: center; align-items: center;">
 			<a class="navbar-brand">CRUD</a>
 		</nav>
-		<br> <br>
-		<h2 class=text-center>No existe una Seleccion con el respectivo
-			ID</h2>
+		<br>
+		<div class="container" style="padding-left: 5.4rem;">
+			<div class="row">
+				<h1>Resultados de la Seleccion <span th:text="${seleccion.nombre}"></span></h1>
+			</div>
+			<table class="table table-striped">
+				<thead class="table-dark">
+					<tr>
+						<th>Id</th>
+						<th>Partido_id</th>
+						<th>Seleccion_id</th>
+						<th>Goles</th>
+						<th>TA</th>
+						<th>TR</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="resultado: ${resultados}">
+						<td th:text="${resultado.id}">Id</td>
+						<td th:text="${resultado.partido.getId()}">Partido ID</td>
+						<td th:text="${resultado.seleccion.getNombre()}">Nombre Seleccion</td>
+						<td th:text="${resultado.goles}">Goles</td>
+						<td th:text="${resultado.amarillas}">Tarjetas Amarillas</td>
+						<td th:text="${resultado.rojas}">Tarjetas Rojas</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </body>
 <script>

@@ -39,4 +39,9 @@ public class SeleccionServiceImplement implements SeleccionService {
 		repository.deleteById(id);
 	}
 
+	@Override
+	public List<Seleccion> listSeleccionesByGroup(String grupo) {
+		return repository.findByGrupo(grupo);	
+	}	
+
 }
