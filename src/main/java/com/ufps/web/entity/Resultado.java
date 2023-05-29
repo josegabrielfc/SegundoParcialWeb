@@ -38,7 +38,10 @@ public class Resultado {
     @ManyToOne
     @JoinColumn(name="seleccion_id")
     private Seleccion seleccion;
-
+    
+    public Resultado() {
+    	
+    }
 	public Resultado(Integer id, Integer goles, Integer amarillas, Integer rojas, Partido partido,
 			Seleccion seleccion) {
 		super();

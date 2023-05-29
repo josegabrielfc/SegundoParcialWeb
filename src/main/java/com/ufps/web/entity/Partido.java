@@ -33,7 +33,10 @@ public class Partido {
     @ManyToOne
     @JoinColumn(name="estadio_id")
     private Estadio estadio;
-
+    
+    public Partido() {
+    	
+    }
 	public Partido(Integer id, Timestamp fecha, List<Resultado> resultado, Estadio estadio) {
 		super();
 		this.id = id;

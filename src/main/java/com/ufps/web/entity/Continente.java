@@ -18,9 +18,11 @@ public class Continente {
 	@SequenceGenerator(name = "continente_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "continente_id_seq")
 	private Integer id;
-
 	private String nombre;
-
+	
+	public Continente() {
+		
+	}
 	public Continente(Integer id, String nombre) {
 		super();
 		this.id = id;

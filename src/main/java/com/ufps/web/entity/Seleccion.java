@@ -27,6 +27,9 @@ public class Seleccion {
 	private Continente continente;
 	private String grupo;
 	
+	public Seleccion() {
+		
+	}
 	public Seleccion(Integer id, String nombre, Continente continente, String grupo) {
 		super();
 		this.id = id;

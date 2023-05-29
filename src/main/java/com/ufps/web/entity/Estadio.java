@@ -19,6 +19,9 @@ public class Estadio {
     private Integer id;
     private String nombre;
     private Integer capacidad;
+    public Estadio() {
+    	
+    }
 	public Estadio(Integer id, String nombre, Integer capacidad) {
 		super();
 		this.id = id;

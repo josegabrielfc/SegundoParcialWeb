@@ -41,7 +41,7 @@ public class SeleccionServiceImplement implements SeleccionService {
 
 	@Override
 	public List<Continente> listAllContinentes() {
-		return repository.findAll();
+		return null;
 	}
 
 }
