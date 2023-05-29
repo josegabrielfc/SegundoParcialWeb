@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ufps.web.entity.Continente;
 import com.ufps.web.entity.Seleccion;
 import com.ufps.web.repository.SeleccionRepository;
 
@@ -36,6 +37,11 @@ public class SeleccionServiceImplement implements SeleccionService {
 	@Override
 	public void deleteSeleccion(Integer id) {
 		repository.deleteById(id);
+	}
+
+	@Override
+	public List<Continente> listAllContinentes() {
+		return repository.findAll();
 	}
 
 }

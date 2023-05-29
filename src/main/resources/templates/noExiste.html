@@ -5,7 +5,7 @@
 	rel="stylesheet">
 <head>
 <meta charset="UTF-8">
-<title>Listado de Selecciones</title>
+<title>Editar Seleccion</title>
 <link rel="icon" type="image/x-icon"
 	href="static/images/icon-spring-boot.svg"
 	th:href="@{/images/icon-spring-boot.svg}">
@@ -57,31 +57,9 @@
 			style="display: flex; justify-content: center; align-items: center;">
 			<a class="navbar-brand">CRUD</a>
 		</nav>
-		<br>
-		<div class="container">
-			<div class="row">
-				<h1>Listado</h1>
-			</div>
-			<table class="table table-striped">
-				<thead class="table-dark">
-					<tr>
-						<th>Id</th>
-						<th>Nombre</th>
-						<th>Continente</th>
-						<th>Grupo</th>
-						<th>Acciones</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="seleccion: ${selecciones}">
-						<td th:text="${seleccion.id}">Id</td>
-						<td th:text="${seleccion.nombre}">Nombre</td>
-						<td th:text="${seleccion.continente.getNombre()}">Nombre del continente</td>
-						<td th:text="${seleccion.grupo}"></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		<br> <br>
+		<h2 class=text-center>No existe una Seleccion con el respectivo
+			ID</h2>
 	</div>
 </body>
 <script>

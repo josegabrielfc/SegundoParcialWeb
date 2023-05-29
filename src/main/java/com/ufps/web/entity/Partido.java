@@ -3,6 +3,8 @@ package com.ufps.web.entity;
 import java.sql.Timestamp;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,24 +20,26 @@ import jakarta.persistence.Table;
 @Table(name = "partido")
 public class Partido {
 	@Id
-	@SequenceGenerator(name="continente_id_seq", allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="continente_id_seq")
-	private Integer id;
-	private Timestamp fecha;
-	
-	@OneToMany(mappedBy = "partido", cascade = CascadeType.ALL)
-	private List<Estadio> estadio;
-	
-	@ManyToOne
-	@JoinColumn(name = "resultado_id")
-	private Resultado resultado;
+    @SequenceGenerator(name="partido_id_seq", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="partido_id_seq")
+    private Integer id;
 
-	public Partido(Integer id, Timestamp fecha, List<Estadio> estadio, Resultado resultado) {
+    private Timestamp fecha;
+
+    @JsonIgnore
+    @OneToMany(mappedBy="partido")
+    private List<Resultado> resultado;
+
+    @ManyToOne
+    @JoinColumn(name="estadio_id")
+    private Estadio estadio;
+
+	public Partido(Integer id, Timestamp fecha, List<Resultado> resultado, Estadio estadio) {
 		super();
 		this.id = id;
 		this.fecha = fecha;
-		this.estadio = estadio;
 		this.resultado = resultado;
+		this.estadio = estadio;
 	}
 
 	public Integer getId() {
@@ -54,20 +58,21 @@ public class Partido {
 		this.fecha = fecha;
 	}
 
-	public List<Estadio> getEstadio() {
-		return estadio;
-	}
-
-	public void setEstadio(List<Estadio> estadio) {
-		this.estadio = estadio;
-	}
-
-	public Resultado getResultado() {
+	public List<Resultado> getResultado() {
 		return resultado;
 	}
 
-	public void setResultado(Resultado resultado) {
+	public void setResultado(List<Resultado> resultado) {
 		this.resultado = resultado;
 	}
-	
+
+	public Estadio getEstadio() {
+		return estadio;
+	}
+
+	public void setEstadio(Estadio estadio) {
+		this.estadio = estadio;
+	}
+    
+    
 }

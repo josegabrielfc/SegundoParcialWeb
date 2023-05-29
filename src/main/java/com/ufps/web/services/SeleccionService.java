@@ -2,6 +2,7 @@ package com.ufps.web.services;
 
 import java.util.List;
 
+import com.ufps.web.entity.Continente;
 import com.ufps.web.entity.Seleccion;
 
 public interface SeleccionService {
@@ -14,4 +15,6 @@ public interface SeleccionService {
 	public Seleccion updateSeleccion(Seleccion category);
 	
 	public void deleteSeleccion(Integer id);
+	
+	public List<Continente> listAllContinentes();
 }

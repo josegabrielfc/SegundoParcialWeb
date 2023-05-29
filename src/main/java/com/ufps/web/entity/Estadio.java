@@ -10,22 +10,15 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "estadio")
+@Table(name ="estadio")
 public class Estadio {
-	@Id
-	@SequenceGenerator(name="continente_id_seq", allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="continente_id_seq")
-	private Integer id;
-	private String nombre;
-	private Integer capacidad;
-	
-	@ManyToOne
-	@JoinColumn(name = "partido_id")
-	private Partido partido;
-	
-	public Estadio() {
-		
-	}
+
+    @Id
+    @SequenceGenerator(name="estadio_id_seq", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="estadio_id_seq")
+    private Integer id;
+    private String nombre;
+    private Integer capacidad;
 	public Estadio(Integer id, String nombre, Integer capacidad) {
 		super();
 		this.id = id;
@@ -49,7 +42,5 @@ public class Estadio {
 	}
 	public void setCapacidad(Integer capacidad) {
 		this.capacidad = capacidad;
-	}
-	
-	
+	}   
 }

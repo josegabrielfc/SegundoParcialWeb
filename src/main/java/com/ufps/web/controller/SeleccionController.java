@@ -30,5 +30,11 @@ public class SeleccionController {
 		modelo.addAttribute("seleccion", seleccion);
 		return "create";
 	}
-
+	@PostMapping("/list")
+	public String saveCategoria(@ModelAttribute("seleccion") Seleccion seleccion) {
+		service.saveSeleccion(seleccion);
+		return "redirect:/seleccion_view/list";
+	}
+	
+	
 }

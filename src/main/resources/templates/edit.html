@@ -5,7 +5,7 @@
 	rel="stylesheet">
 <head>
 <meta charset="UTF-8">
-<title>Listado de Selecciones</title>
+<title>Editar Seleccion</title>
 <link rel="icon" type="image/x-icon"
 	href="static/images/icon-spring-boot.svg"
 	th:href="@{/images/icon-spring-boot.svg}">
@@ -60,27 +60,32 @@
 		<br>
 		<div class="container">
 			<div class="row">
-				<h1>Listado</h1>
+				<div
+					class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+					<h1 class="text-center">Edición de Categoria</h1>
+					<div class="card-body">
+						<form th:action="@{/categoria_view/list/{id}(id=${categoria.id})}"
+							th:object="${categoria}" method="POST">
+
+							<div class="form-group">
+								<label>Id: </label> <input type="number" name="id"
+									th:field="*{id}" class="form-control"
+									placeholder="Digite el ID">
+							</div>
+							<br>
+							<div class="form-group">
+								<label>Descripción: </label> <input type="text"
+									name="descripcion" th:field="*{descripcion}"
+									class="form-control" placeholder="Digite una Descripción">
+							</div>
+							<br>
+							<div class="box-footer">
+								<button class="btn btn-success">Guardar</button>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
-			<table class="table table-striped">
-				<thead class="table-dark">
-					<tr>
-						<th>Id</th>
-						<th>Nombre</th>
-						<th>Continente</th>
-						<th>Grupo</th>
-						<th>Acciones</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="seleccion: ${selecciones}">
-						<td th:text="${seleccion.id}">Id</td>
-						<td th:text="${seleccion.nombre}">Nombre</td>
-						<td th:text="${seleccion.continente.getNombre()}">Nombre del continente</td>
-						<td th:text="${seleccion.grupo}"></td>
-					</tr>
-				</tbody>
-			</table>
 		</div>
 	</div>
 </body>
