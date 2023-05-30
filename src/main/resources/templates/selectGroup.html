@@ -57,21 +57,27 @@
 			<div class="row">
 				<div
 					class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-					<h1 class="text-center">Escribe el Grupo, para visualizar las selecciones</h1>
+					<h1 class="text-center">Escribe el Grupo, para visualizar las
+						selecciones</h1>
 					<div class="card-body">
-					<!-- http://localhost:8040/seleccion_view/grupo/C -->
-						<form th:action="@{/seleccion_view/grupo/{grupo}(grupo=${seleccion.grupo})}" th:object="${seleccion}" method="POST">
-							<input type="hidden" name="id" th:field="*{id}" />
-							<br>
+						<!-- http://localhost:8040/seleccion_view/grupo/C -->
+						<form
+							th:action="@{/seleccion_view/grupo/{grupo}(grupo=${seleccion.grupo})}"
+							th:object="${seleccion}" method="POST">
 							<div class="form-group">
-								<label>Grupo: </label> <input type="text" th:field="*{grupo}"
-									class="form-control" placeholder="Digite el grupo">
+								<label>Grupo:</label> <select th:name="grupo"
+									class="form-control">
+									<option th:each="grupo : ${grupos}" th:value="${grupo}"
+										th:text="${grupo}"></option>
+								</select>
 							</div>
 							<br>
 							<div class="box-footer">
-								<button class="btn btn-success">Elegir</button>
+								<button type="submit" class="btn btn-success">Elegir</button>
 							</div>
 						</form>
+
+
 					</div>
 				</div>
 			</div>

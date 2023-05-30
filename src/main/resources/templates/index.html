@@ -76,6 +76,8 @@
 						<td th:text="${seleccion.grupo}"></td>
 						<td><a class="btn btn-primary"
 							th:href="@{/seleccion_view/{id}/resultados(id=${seleccion.id})}">Resultados</a>
+							<a class="btn btn-success"
+							th:href="@{/seleccion_view/grupo/{grupo}(grupo=${seleccion.grupo})}">Listado del Grupo</a>
 							<a th:href="@{/seleccion_view/edit(id=${seleccion.id})}"
 							class="btn btn-info">Editar</a> <a
 							th:href="@{/seleccion_view/delete/{id}(id=${seleccion.id})}"

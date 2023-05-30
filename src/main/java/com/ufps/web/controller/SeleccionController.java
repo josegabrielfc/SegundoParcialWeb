@@ -93,7 +93,8 @@ public class SeleccionController {
 		model.addAttribute("resultados", resultados);
 		return "results";
 	}
-
+	
+	
 	@GetMapping("/grupo/{grupo}")
 	public String listGroups(@PathVariable("grupo") String grupo, Model model) {
 
@@ -104,9 +105,10 @@ public class SeleccionController {
 	}
 	@GetMapping("/selectGroup")
 	public String selectGroup(Model model) {
-		Seleccion seleccion = new Seleccion();
-		model.addAttribute("seleccion", seleccion);
-		return "selectGroup";
+	    Seleccion seleccion = new Seleccion();
+	    List<String> grupos = seleccionRepository.findDistinctGrupos();
+	    model.addAttribute("seleccion", seleccion);
+	    model.addAttribute("grupos", grupos);
+	    return "selectGroup";
 	}
-
 }
